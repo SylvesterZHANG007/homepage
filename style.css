@@ -1,70 +1,14 @@
-/* 基础样式 */
+/* 全局样式 */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     color: #333;
     background: #f9f9f9;
 }
 
-header {
-    text-align: center;
-    padding-top: 60vh; /* 确保后续内容开始时预留足够空间 */
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background: #444;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 5;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    transition: background 0.3s;
-}
-
-nav ul li a:hover {
-    background: #0078d7;
-}
-
-main {
-    margin-top: 20px;
-    padding: 0 20px;
-}
-
-section {
-    margin: 20px 0;
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 8px;
-}
-
-.project {
-    margin-bottom: 15px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #fff;
-}
-
-/* 初始显示的大字样式 */
+/* 初始页面：只显示大字 */
 .intro-container {
     position: fixed;
     top: 50%;
@@ -77,10 +21,24 @@ footer {
 #intro-text {
     font-size: 4rem;
     color: #0078d7;
-    transition: transform 0.3s, font-size 0.3s, opacity 0.3s;
+    transition: transform 0.5s, font-size 0.5s, opacity 0.5s;
 }
 
-/* 滚动后触发的样式 */
+/* 隐藏其他内容 */
+nav,
+main,
+footer {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* 滚动触发：显示其他内容 */
+body.scrolled nav,
+body.scrolled main,
+body.scrolled footer {
+    opacity: 1;
+}
+
 body.scrolled .intro-container {
     position: static;
     transform: none;
