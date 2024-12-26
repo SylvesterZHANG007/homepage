@@ -1,14 +1,16 @@
-/* 全局样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    color: #333;
+    overflow-x: hidden; /* 允许垂直滚动，禁止水平滚动 */
     background: #f9f9f9;
 }
 
-/* 初始页面：只显示大字 */
+header {
+    text-align: center;
+    padding-top: 60vh; /* 确保大字显示在屏幕中央 */
+}
+
 .intro-container {
     position: fixed;
     top: 50%;
@@ -24,7 +26,6 @@ body {
     transition: transform 0.5s, font-size 0.5s, opacity 0.5s;
 }
 
-/* 隐藏其他内容 */
 nav,
 main,
 footer {
@@ -32,7 +33,6 @@ footer {
     transition: opacity 0.5s;
 }
 
-/* 滚动触发：显示其他内容 */
 body.scrolled nav,
 body.scrolled main,
 body.scrolled footer {
@@ -49,4 +49,8 @@ body.scrolled #intro-text {
     font-size: 1.5rem;
     transform: translateY(-50px);
     opacity: 0.7;
+}
+
+main {
+    min-height: 150vh; /* 确保内容足够长可以滚动 */
 }
