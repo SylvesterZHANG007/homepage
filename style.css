@@ -1,16 +1,16 @@
+/* 基础样式 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     color: #333;
+    background: #f9f9f9;
 }
 
 header {
-    background: #0078d7;
-    color: #fff;
-    padding: 20px 0;
     text-align: center;
+    padding-top: 60vh; /* 确保后续内容开始时预留足够空间 */
 }
 
 nav ul {
@@ -20,6 +20,9 @@ nav ul {
     background: #444;
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 nav ul li {
@@ -29,15 +32,17 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    background: #0078d7;
 }
 
-.container {
-    max-width: 960px;
-    margin: auto;
+main {
+    margin-top: 20px;
     padding: 0 20px;
 }
 
@@ -57,4 +62,33 @@ footer {
     padding: 10px 0;
     background: #333;
     color: #fff;
+}
+
+/* 初始显示的大字样式 */
+.intro-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+#intro-text {
+    font-size: 4rem;
+    color: #0078d7;
+    transition: transform 0.3s, font-size 0.3s, opacity 0.3s;
+}
+
+/* 滚动后触发的样式 */
+body.scrolled .intro-container {
+    position: static;
+    transform: none;
+    margin-bottom: 20px;
+}
+
+body.scrolled #intro-text {
+    font-size: 1.5rem;
+    transform: translateY(-50px);
+    opacity: 0.7;
 }
