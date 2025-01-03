@@ -1,3 +1,4 @@
+console.log("JavaScript is loaded");
 document.addEventListener('DOMContentLoaded', () => {
     const introContainer = document.querySelector('.intro-container'); // 获取标题容器
     const body = document.body;
