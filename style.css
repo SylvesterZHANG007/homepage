@@ -1,16 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* 允许垂直滚动，禁止水平滚动 */
-    background: #f9f9f9;
-}
-
-header {
-    text-align: center;
-    padding-top: 60vh; /* 确保大字显示在屏幕中央 */
-}
-
+/* 初始页面样式 */
 .intro-container {
     position: fixed;
     top: 50%;
@@ -18,39 +6,66 @@ header {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #intro-text {
     font-size: 4rem;
     color: #0078d7;
-    transition: transform 0.5s, font-size 0.5s, opacity 0.5s;
 }
 
+/* 隐藏导航栏和主要内容 */
 nav,
 main,
 footer {
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s ease-in-out;
 }
 
+/* 滚动后显示导航栏和正文内容 */
 body.scrolled nav,
 body.scrolled main,
 body.scrolled footer {
     opacity: 1;
 }
 
+/* 滚动后隐藏标题 */
 body.scrolled .intro-container {
-    position: static;
-    transform: none;
-    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-body.scrolled #intro-text {
-    font-size: 1.5rem;
-    transform: translateY(-50px);
-    opacity: 0.7;
+/* 导航栏固定样式 */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-main {
-    min-height: 150vh; /* 确保内容足够长可以滚动 */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #0078d7;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #0056a3;
+    border-bottom: 2px solid #0056a3;
 }
