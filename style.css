@@ -1,21 +1,16 @@
-/* 初始页面样式 */
+/* 初始样式：标题完全可见 */
 .intro-container {
-    position: fixed;
+    position: fixed; /* 固定在屏幕中间 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    z-index: 10; /* 确保在最前方 */
+    opacity: 1; /* 初始完全可见 */
+    transition: opacity 0.5s ease-in-out; /* 平滑过渡 */
 }
 
-#intro-text {
-    font-size: 4rem;
-    color: #0078d7;
-}
-
-/* 隐藏导航栏和主要内容 */
+/* 隐藏导航栏和正文 */
 nav,
 main,
 footer {
@@ -23,7 +18,7 @@ footer {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* 滚动后显示导航栏和正文内容 */
+/* 滚动后显示导航栏和正文 */
 body.scrolled nav,
 body.scrolled main,
 body.scrolled footer {
@@ -32,40 +27,6 @@ body.scrolled footer {
 
 /* 滚动后隐藏标题 */
 body.scrolled .intro-container {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* 导航栏固定样式 */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    color: #0078d7;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #0056a3;
-    border-bottom: 2px solid #0056a3;
+    opacity: 0; /* 淡出标题 */
+    transition: opacity 1s ease-in-out;
 }
